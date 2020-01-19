@@ -1,3 +1,100 @@
+// Flor, excelente trabajo! Hay detalles que te voy mencionando,pero en general todo funciona
+// correctamente, el codigo es prolijo y claro, y demuestra la comprension de los temas vistos. 
+// Felicitaciones!
+
+// Un comentario a tener en cuenta es tratar de borrar los console log antes de entregar
+// un trabajo. Se considera un error tenerlos en un programa listo, ya que un usuario podria verlos. 
+
+// Hay bastante codigo repetido que podria evitarse en el momento en que el usuario dice 
+// que no desea repetir la operacion. Si pusieramos el prompt de "Que operacion desea realizar"
+// al comienzo del while !== salir, en lugar de hacerlo en el otro, se podria evitar
+// Es decir, si escribimos esto:
+// while (operacion !== "SALIR") {
+    // operacion = prompt(`Qué operación desea realizar?
+    // 👤  CREAR
+    // 🔎  BUSCAR
+    // 📄  LISTAR
+    // ✏️  MODIFICAR
+    // 🗑️  ELIMINAR
+    // 🚪  SALIR
+    // `);
+
+// Despues podriamos escribir algo asi:
+//         if (continuar === "NO") {
+//            operacion = ""
+//         }
+// Sin la necesidad de repetir todo el codigo del menu. 
+
+
+// Con respecto al problema de la repeticion en el for de buscar, es imposible lograr que ese
+// alerta no se repita si la escribimos adentro del for (porque justamente, lo que hace el for
+// es repetir la ejecucion del codigo en cada vuelta)
+// La solucion es usar una variable "bandera" que comentamos un par de veces en clase. La variable 
+// empieza en false, y solo cambia a true si hay una coincidencia. Despues esa variable nos sirve
+// afuera del for, para mostrar el alerta
+// Asi:
+
+// let usuarioEncontrado = false 
+// let usuarioAMostrar = []
+
+// for (let i = 0; i < usuarios.length; i++) {
+//     for (let j = 0; j < usuarios[i].length; j++) {
+//         if (usuarios[i][j] === datoABuscar) {
+//             usuarioAMostrar = usuarios[i]
+//             usuarioEncontrado = true
+//         }
+//     };
+// };
+// if (usuarioEncontrado) {
+// alert(`Buscaste al siguiente usuario:        
+//             🆔   ID: ${usuarioAMostrar[0]}
+//             👤  Nombre: ${usuarioAMostrar[1]}
+//             📞  Celular: ${usuarioAMostrar[2]}
+//             📮  Mail: ${usuarioAMostrar[3]}
+//             `);
+// }
+// else {
+//     alert("No existe el usuario solicitado ❗");
+// }
+
+// Lee el codigo de arriba tranqui y si hay dudas me escribis. 
+
+
+// Con respecto al comentario de haber escrito los usuarios a mano: tenes razon, 
+// seria mejor que este codigo se pudiera hacer "solo" sin escribirlos uno por uno, 
+// y ademas serviria independientemente de la cantidad de usuarios. 
+
+// La solucion es hacer una variable "acumuladora" similar a la que hicimos para 
+// el ejercicio de la suma parcial. 
+// Es decir: empezamos con una variable que no es mas que un string vacio. 
+// En cada vuelta del for, le agregamos a esa variable los datos del usuario que estamos recorriendo
+// "acumulando" en esa variable, cada uno de los datos. 
+// Al final del for, mostramos el resultado final
+
+// Te lo muestro primero con un array normal
+        // let arrayDeNombres = ["Carla", "Pedro", "Lucas", "Ana"]
+        // let fraseAMostrar = ""
+        // for (let i = 0; i < arrayDeNombres.length; i++) {
+        //     fraseAMostrar = fraseAMostrar + arrayDeNombres[i]   
+        // }
+// Al final de ese for, "fraseAMostrar" sera igual a "CarlaPedroLucasAna"
+
+// Ahora lo complicamos un poco mas con el array de usuarios
+// let fraseAMostrar = ""
+// for (let i = 0; i < usuarios.length; i++) {
+//         fraseAMostrar = fraseAMostrar + `
+//         ID: ${usuarios[i][0]}
+//         Nombre: ${usuarios[i][1]}`
+// }
+
+// Asi funcionaria independientemente de la cnatidad de usuarios que haya. 
+
+
+
+
+
+
+
 // LISTA DE USUARIOS PRECARGADOS
 
 const usuarios = [
